@@ -1,0 +1,70 @@
+### ghi chú
+###
+GET http://localhost:8080/LIST_TIVI
+
+###
+GET http://localhost:8080/LIST_MOBILE
+
+
+###
+GET http://localhost:8080/LIST_FOOD
+###
+GET http://localhost:8080/LIST_USER
+###
+GET http://localhost:8080/LIST_STORE
+###
+GET http://localhost:8080/LIST_STUDENT
+
+###
+GET http://localhost:8080/ANDROID_1.png
+###
+POST http://localhost:8080/LIENHE
+###
+
+###
+GET http://localhost:8080/LIST_ABOUT
+###
+POST http://localhost:8080/LOGIN
+Content-Type: application/json
+
+{
+
+  "Ten_Dang_nhap": "dyutuongle",
+  "Mat_khau": "leletuongtuong111"
+ 
+}
+ 
+
+
+### Thêm một người dùng mới
+POST http://localhost:8080/INSERT_USER
+Content-Type: application/json
+
+{
+	"Ho_ten":"Le Duy Nhat",
+	"Ma_so":"QL_3290",
+	"Ten_Dang_nhap":"dyutuongle",
+	"Mat_khau":"leletuongtuong",
+	"Nhom_Nguoi_dung":{
+		"Ten":"Nhân viên Quản lý",
+		"Ma_so":"NHAN_VIEN_QUAN_LY"
+	}
+}
+### Thêm một người dùng mới
+POST http://localhost:8080/INSERT_ABOUT
+Content-Type: application/json
+
+{
+	"title":"Le Duy Nhat",
+	"content":"QL_3290 không ai cả"
+}
+ ### Cập nhật dữ liệu
+
+###
+PUT http://localhost:8080/UPDATE_ABOUT
+###
+PUT http://localhost:8080/UPDATE_USER
+
+### Xóa dữ liệu
+###
+DELETE http://localhost:8080/DELETE_ABOUT

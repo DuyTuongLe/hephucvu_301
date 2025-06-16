@@ -1,0 +1,47 @@
+server.js
+
+else if(method=="POST"){
+        // Nhận dữ liệu từ Client gởi về.
+        let noi_dung_nhan="";
+        req.on("data",(du_lieu)=>{
+            noi_dung_nhan+= du_lieu;
+        })
+
+        if(url=="/INSERT_USER"){
+            // Server Xử lý và Trả kết quả lại cho Client
+            req.on("end",()=>{
+                let kq={
+                    "noi_dung":true
+                }
+                let new_document= JSON.parse(noi_dung_nhan);
+                db.insertOne("user",new_document).then((result)=>{
+                    console.log(result)
+                    res.end(JSON.stringify(kq));
+                }).catch((err)=>{
+                    console.error("Error Insert User: ", err )
+                    kq.noi_dung=false;
+                    res.end(JSON.stringify(kq));
+                })
+                
+            })
+        }else{
+            res.end(result); 
+        }
+        
+}
+testAPI.rest
+
+### Thêm một người dùng mới
+POST http://localhost:8080/INSERT_USER
+Content-Type: application/json
+
+{
+	"Ho_ten":"XXX XXX",
+	"Ma_so":"QL_300",
+	"Ten_Dang_nhap":"xxxxx",
+	"Mat_khau":"xxx",
+	"Nhom_Nguoi_dung":{
+		"Ten":"Nhân viên Quản lý",
+		"Ma_so":"NHAN_VIEN_QUAN_LY"
+	}
+}

@@ -1,0 +1,52 @@
+LOGIN
+
+testAPI.rest
+
+POST http://localhost:8080/LOGIN
+Content-Type: application/json
+
+{
+
+  "Ten_Dang_nhap": "taiem",
+  "Mat_khau": "taiem"
+ 
+}
+===============================================================
+
+server.js
+
+else if(url=="/LOGIN"){
+            // Server Xử lý và Trả kết quả lại cho Client
+            req.on("end",()=>{
+                let kq={
+                    "noi_dung":true
+                }
+                let user= JSON.parse(noi_dung_nhan);
+                let filter = {
+                    $and: [
+                        {
+                            "Ten_Dang_nhap": user.Ten_Dang_nhap 
+                        },
+                        {
+                            "Mat_khau":user.Mat_khau
+                        }
+                    ]
+                }
+                db.getOne("user",filter).then((result)=>{
+                    console.log(result)
+                    if(result){
+                        res.end(JSON.stringify(kq));
+                    }else{
+                        kq.noi_dung=false;
+                        res.end(JSON.stringify(kq));
+                    }
+                    
+                }).catch((err)=>{
+                    console.error(`Error Login:`, err);
+                    kq.noi_dung=false;
+                    res.end(JSON.stringify(kq));
+                })
+
+                //
+            })
+        }

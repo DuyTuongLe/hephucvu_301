@@ -1,0 +1,33 @@
+các bước tạo dịch vụ với node js
+
+b1 Tạo thư mục lưu trữ: he_phuc_vu
+b2 Tạo file package.json
+    npm init -y
+b3 Cài đặt module mongodb (CSDL MONGODB)
+    npm i mongodb --s
+b4 Cài đặt module dotenv (Quản lý các biến môi trường)
+    npm i dotenv --s
+b5 Tạo tập tin .env để khai báo các biến môi trường
+b6 Tạo tập tin: server.js (thực hiện trên file luôn)
+b7 Thực thi dịch vụ 
+    7.1 vào server.js f5(node js) fix lỗi thêm thêm "type":"module" vào package.json
+    7.2 Mở terminal => gõ lệnh node ./server.js
+        Muốn stop server: CTRL + C
+    7.3 npm start
+        Vào file package.json Thêm 
+        "scripts": {
+            "test": "echo \"Error: no test specified\" && exit 1",
+            "start": "node ./server.js"
+        },
+
+        terminal gõ lệnh: npm start
+        stop: CTRL + C => Y
+b8 Cài đặt extension: REST CLIENT (Test API)
+    gõ rest => REST Client
+b9 Tạo tập tin: testAPI.rest
+
+
+================POST===============
+Thêm một người dùng mới
+
+Let document_user
