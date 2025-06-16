@@ -22,7 +22,7 @@ const server = http.createServer((req, res) => {
 
     let method = req.method;
     let url = req.url;
-    let result = `Services Node: Method: ${method} - Url: ${url}`;
+    let result = `Serdvices Node: Method: ${method} - Url: ${url}`;
     
     // Cấu hình CORS
     res.setHeader("Access-Control-Allow-Origin", "*");
